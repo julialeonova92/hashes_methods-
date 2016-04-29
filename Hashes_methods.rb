@@ -5,11 +5,13 @@ unless File.exists?(ARGV.first)
   exit
 end
   
-File.open(ARGV.first) do |f|
-  movies=f.map do |line|
+File.open(ARGV.first) 
+do |f|
+  movies=f.map 
+  do |line|
     field=line.split("|")
     {title:field[1], year:field[2], country:field[3], date:field[4], genre:field[5], longe:field[6], rating:field[7], director:field[8], actor:field[9]}
-end 
+  end 
 
   p movies.sort_by { |hsh| hsh[:longe].to_i }.map{|hsh| hsh[:longe]}.last(5) # 5 самых длинных фильмов.
   p movies.find_all{ |hsh| hsh[:genre].include?("Comedy")}.sort_by {|hsh| hsh[:date]}.map { |hsh| hsh[:title] } #все комедии, отсортированные по дате выхода
