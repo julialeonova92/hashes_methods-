@@ -1,4 +1,4 @@
-# hashes_methods-
+# hashes_methods
 
 unless File.exists?(ARGV.first) 
 puts "File not found"
